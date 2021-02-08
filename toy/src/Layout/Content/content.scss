@@ -1,0 +1,16 @@
+.el-main {
+    height: 100%;
+    width: 100%;
+    background-color: #f0f0f0;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+
+    .wrap {
+        width: 375px;
+        height: 667px;
+        background-color: gray;
+    }
+}
