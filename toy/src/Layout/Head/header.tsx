@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue';
 import './header.scss';
 export default defineComponent({
-  name: 'head',
+  name: 'Head',
   setup() {
     return () => (
       <>

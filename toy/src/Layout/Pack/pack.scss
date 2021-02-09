@@ -1,0 +1,59 @@
+$color: #1a73e8;
+
+.pack {
+    border: 1px solid $color;
+    position: relative;
+    cursor: move;
+
+    >i {
+        border-radius: 50%;
+        width: 5px;
+        height: 5px;
+        background-color: $color;
+        position: absolute;
+    }
+
+    .dot-left-top {
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        cursor: nw-resize;
+    }
+
+    .dot-right-top {
+        top: 0;
+        right: 0;
+        transform: translate(50%, -50%);
+        cursor: se-resize;
+    }
+
+    .dot-left-bottom {
+        bottom: 0;
+        left: 0;
+        transform: translate(-50%, 50%);
+        cursor: sw-resize;
+    }
+
+    .dot-right-bottom {
+        bottom: 0;
+        right: 0;
+        transform: translate(50%, 50%);
+        cursor: se-resize;
+    }
+
+    .dot-center-top {
+        top: 0;
+        right: 50%;
+        transform: translate(-50%, -50%);
+        cursor: n-resize;
+    }
+
+    .dot-center-bottom {
+        bottom: 0;
+        right: 50%;
+        transform: translate(-50%, 50%);
+        cursor: n-resize;
+    }
+
+    .move-wrap {}
+}

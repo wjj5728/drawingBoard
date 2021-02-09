@@ -16,13 +16,13 @@ export default defineComponent({
           <Header />
         </el-header>
         <el-container>
-          <el-aside width='300px'>
+          <el-aside>
             <Categories />
           </el-aside>
           <el-main>
             <Content />
           </el-main>
-          <el-aside width='300px'>
+          <el-aside>
             <Control />
           </el-aside>
         </el-container>

@@ -1,9 +1,9 @@
-import { defineComponent, ref } from 'vue';
-
+import { defineComponent, ref, reactive } from 'vue';
+import './categories.scss';
 export default defineComponent({
   name: 'categories',
   setup() {
-    const isCollapse = ref();
+    const isCollapse = ref(false);
 
     function handleOpen() {
       console.log('open');
@@ -13,30 +13,69 @@ export default defineComponent({
     }
     return () => (
       <>
-        <el-radio-group vModel={isCollapse} style='margin-bottom: 20px;'>
-          <el-radio-button label={false}>展开</el-radio-button>
-          <el-radio-button label={true}>收起</el-radio-button>
-        </el-radio-group>
-        <el-menu
-          default-active='1'
-          class='el-menu-vertical-demo'
-          OnOpen={handleOpen}
-          OnClose={handleClose}
-          collapse={isCollapse}
+        <div
+          class='cate-wrap'
+          style={{ width: isCollapse.value ? '60px' : 'auto' }}
         >
-          <el-menu-item index='1'>
-            <i class='el-icon-menu'></i>
-          </el-menu-item>
-          <el-menu-item index='2'>
-            <i class='el-icon-menu'></i>
-          </el-menu-item>
-          <el-menu-item index='3' disabled>
-            <i class='el-icon-document'></i>
-          </el-menu-item>
-          <el-menu-item index='4'>
-            <i class='el-icon-setting'></i>
-          </el-menu-item>
-        </el-menu>
+          <i
+            class={
+              isCollapse.value
+                ? 'el-icon-d-arrow-right'
+                : 'el-icon-d-arrow-left'
+            }
+            onClick={() => {
+              isCollapse.value = !isCollapse.value;
+            }}
+          ></i>
+          <ul class='categories'>
+            <li>
+              <i class='el-icon-s-data'></i>
+              <p>类别</p>
+            </li>
+            <li>
+              <i class='el-icon-s-data'></i>
+              <p>类别</p>
+            </li>
+            <li>
+              <i class='el-icon-s-data'></i>
+              <p>类别</p>
+            </li>
+            <li>
+              <i class='el-icon-s-data'></i>
+              <p>类别</p>
+            </li>
+            <li>
+              <i class='el-icon-s-data'></i>
+              <p>类别</p>
+            </li>
+            <li>
+              <i class='el-icon-s-data'></i>
+              <p>类别</p>
+            </li>
+            <li>
+              <i class='el-icon-s-data'></i>
+              <p>类别</p>
+            </li>
+            <li>
+              <i class='el-icon-s-data'></i>
+              <p>类别</p>
+            </li>
+          </ul>
+          <ul class='cate-list'>
+            <li>
+              <i class='el-icon-video-camera'></i>
+              <p>item</p>
+            </li>
+            <li>
+              <i class='el-icon-video-camera'></i>
+              <p>item</p>
+            </li>
+            <li>
+              <i class='el-icon-video-camera'></i>
+              <p>item</p>
+            </li>
+          </ul>
+        </div>
       </>
     );
   },
