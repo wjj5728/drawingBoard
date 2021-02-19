@@ -1,13 +1,16 @@
 import { defineComponent } from 'vue';
-import Logo from '../assets/logo.png';
-
+export const config = {
+  style: {
+    width: '100%',
+    height: '100px',
+  },
+};
 export default defineComponent({
-  name: 'App',
+  name: 'lottie',
   setup() {
     return () => (
       <>
-        <h1>About</h1>
-        <img src={Logo} />
+        <p class='test'>lottie</p>
       </>
     );
   },

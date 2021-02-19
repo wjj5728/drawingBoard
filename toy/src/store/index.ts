@@ -1,37 +1,28 @@
 import { InjectionKey } from 'vue';
 import { createStore, Store, CommitOptions } from 'vuex';
-import { DispatchOptions, Payload } from 'vuex';
+import { componentItem } from '../typings/inedx';
+import { actionType } from './actionTypes';
 export interface State {
   count: number;
+  components: componentItem[];
 }
-export interface Dispatch {
-  (type: string, payload?: any, options?: DispatchOptions): Promise<any>;
-  <P extends Payload>(
-    payloadWithType: P,
-    options?: DispatchOptions
-  ): Promise<any>;
-}
-
-export interface Commit {
-  (type: 'increment', payload?: any, options?: CommitOptions): void;
-  <P extends Payload>(payloadWithType: P, options?: CommitOptions): void;
-}
-
 export const key: InjectionKey<Store<State>> = Symbol();
 export const store = createStore<State>({
   state(): State {
     return {
       count: 0,
+      components: [],
     };
   },
   mutations: {
-    increment(state: State) {
-      state.count++;
+    [actionType.ADD](state: State, payload: componentItem) {
+      state.components.push(payload);
     },
   },
   actions: {
-    increment(context) {
-      context.commit('increment');
+    [actionType.ADD](context, payload: componentItem) {
+      console.log(payload);
+      context.commit(actionType.ADD, payload);
     },
   },
 });

@@ -30,20 +30,19 @@
         li {
             margin: 0 auto 20px;
             text-align: center;
-
-
+            transition: all 0.1s ease;
 
             &:hover,
             &:active {
                 color: #409EFF;
             }
-        }
 
-        i[class^="el-icon"] {
-            font-size: 32px;
-            cursor: pointer;
+            i[class^="el-icon"] {
+                font-size: 32px;
+                cursor: pointer;
+            }
 
-            .act {
+            &.act {
                 color: #409EFF;
             }
         }
@@ -61,9 +60,14 @@
             width: 110px;
             height: 120px;
             flex-shrink: 0;
+            border: 1px solid transparent;
 
             .el-icon-video-camera {
                 font-size: 50px;
+            }
+
+            &:hover {
+                border: 1px solid #409EFF;
             }
         }
     }
