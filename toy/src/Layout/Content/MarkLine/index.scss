@@ -1,0 +1,21 @@
+$color: #1a73e8;
+
+.line-align {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 1px;
+    width: 100%;
+    background-color: $color;
+    opacity: 0.5;
+}
+
+.line-verticle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background-color: $color;
+    opacity: 0.5;
+}

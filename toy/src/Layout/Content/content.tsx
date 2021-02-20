@@ -1,5 +1,6 @@
 import { defineComponent, resolveDynamicComponent } from 'vue';
 import Pack from '../Pack/pack';
+import MarkLine from './MarkLine';
 import storeMager from '../../service/storeMager';
 import './content.scss';
 import { actionType } from '../../store/actionTypes';
@@ -7,11 +8,10 @@ import { GlobalConfig } from '../../config';
 import { styleMerge } from './utils';
 export default defineComponent({
   name: 'content',
-  components: { Pack },
+  components: { Pack, MarkLine },
   setup() {
     let { store } = storeMager();
     const drop = (e: DragEvent) => {
-      console.log(e);
       let data = e.dataTransfer?.getData('component') as string;
       let pathConfig = data?.split('_');
       let categories = pathConfig[0];
@@ -43,15 +43,25 @@ export default defineComponent({
               dragover(e);
             }}
           >
+            {/* 组件 */}
             {store.state.components.map(item => {
               let el = resolveDynamicComponent(item.name);
-              console.log(item);
               return (
-                <Pack style={item.style}>
+                <Pack
+                  active={item.uuid == store.state.activeComponentUuid}
+                  onClick={() => {
+                    store.dispatch(actionType.CHANGEACT, item.uuid);
+                    console.log(store.state.components);
+                  }}
+                  style={item.style}
+                >
                   <el></el>
                 </Pack>
               );
             })}
+
+            {/* 辅助线 */}
+            <MarkLine></MarkLine>
           </div>
         </div>
       </>

@@ -1,9 +1,12 @@
 $color: #1a73e8;
 
 .pack {
-    border: 1px solid $color;
     position: relative;
     cursor: move;
+
+    .pack-wrap {
+        overflow: hidden;
+    }
 
     >i {
         border-radius: 50%;
@@ -11,49 +14,73 @@ $color: #1a73e8;
         height: 5px;
         background-color: $color;
         position: absolute;
+        z-index: 1;
+        display: none;
     }
 
-    .dot-left-top {
+    .dot-lt {
         top: 0;
         left: 0;
         transform: translate(-50%, -50%);
         cursor: nw-resize;
     }
 
-    .dot-right-top {
+    .dot-rt {
         top: 0;
         right: 0;
         transform: translate(50%, -50%);
-        cursor: se-resize;
+        cursor: sw-resize;
     }
 
-    .dot-left-bottom {
+    .dot-lb {
         bottom: 0;
         left: 0;
         transform: translate(-50%, 50%);
         cursor: sw-resize;
     }
 
-    .dot-right-bottom {
+    .dot-rb {
         bottom: 0;
         right: 0;
         transform: translate(50%, 50%);
         cursor: se-resize;
     }
 
-    .dot-center-top {
+    .dot-ct {
         top: 0;
         right: 50%;
         transform: translate(-50%, -50%);
         cursor: n-resize;
     }
 
-    .dot-center-bottom {
+    .dot-cb {
         bottom: 0;
         right: 50%;
         transform: translate(-50%, 50%);
         cursor: n-resize;
     }
 
+    .dot-cl {
+        top: 50%;
+        left: 0;
+        transform: translate(-50%, -50%);
+        cursor: e-resize;
+    }
+
+    .dot-cr {
+        top: 50%;
+        right: 0;
+        transform: translate(50%, -50%);
+        cursor: e-resize;
+    }
+
     .move-wrap {}
+}
+
+.act {
+    border: 1px solid $color;
+
+    >i {
+        display: block;
+    }
 }
