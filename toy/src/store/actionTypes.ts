@@ -3,4 +3,6 @@ export enum actionType {
   ADD = 'ADD',
   /** 点击态 */
   CHANGEACT = 'CHANGACT',
+  /** 修改 */
+  EDIT = 'EDIT',
 }

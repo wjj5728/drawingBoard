@@ -3,6 +3,7 @@ $color: #1a73e8;
 .pack {
     position: relative;
     cursor: move;
+    border: 1px solid transparent;
 
     .pack-wrap {
         overflow: hidden;

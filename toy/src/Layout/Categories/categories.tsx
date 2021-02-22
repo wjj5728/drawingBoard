@@ -41,7 +41,7 @@ export default defineComponent({
             {Object.keys(GlobalConfig).map((item, i) => {
               return (
                 <li
-                  class={i == index.value ? 'act' : ''}
+                  class={i == index.value ? 'active' : ''}
                   onClick={() => {
                     index.value = i;
                   }}
